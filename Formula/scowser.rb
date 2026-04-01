@@ -1,18 +1,9 @@
-# Homebrew formula for Scowser
-# To use: brew tap <your-username>/scowser && brew install scowser
-#
-# Publishing steps:
-#   1. Create a GitHub repo: <your-username>/homebrew-scowser
-#   2. Put this file in the repo as Formula/scowser.rb
-#   3. Update the `url` and `sha256` fields to point to a release tarball
-#   4. Users install with: brew tap <your-username>/scowser && brew install scowser
-
 class Scowser < Formula
   desc "Security-focused web browser with built-in ad blocking, DoH, and ephemeral sessions"
   homepage "https://github.com/scowser/scowser"
-  url "https://github.com/scowser/scowser/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "UPDATE_WITH_ACTUAL_SHA256"
-  license "Apache-2.0"
+  url "https://github.com/scowser/scowser/archive/refs/tags/v0.0.1.tar.gz"
+  sha256 "035bb89bf8274e51744329b9edce8c6a1edabb9d38dce2745415c99d0439d74d"
+  license "MIT"
 
   depends_on "cmake" => :build
   depends_on "qt@6"
@@ -44,7 +35,6 @@ class Scowser < Formula
   end
 
   test do
-    # Basic smoke test — verify binary runs and exits cleanly
     assert_match "Scowser", shell_output("#{bin}/scowser --version 2>&1", 0)
   end
 end
