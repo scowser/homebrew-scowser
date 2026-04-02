@@ -1,4 +1,4 @@
-class Scowser < Formula
+class scowser < Formula
   desc "Security-focused web browser with built-in ad blocking, DoH, and ephemeral sessions"
   homepage "https://github.com/scowser/scowser"
   url "https://github.com/scowser/scowser/archive/refs/tags/v0.0.1.tar.gz"
@@ -22,11 +22,29 @@ class Scowser < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build", "--parallel", ENV.make_jobs.to_s
     system "cmake", "--install", "build", "--prefix", prefix
+
+    if OS.mac?
+      prefix.install "build/scowser.app" if (buildpath/"build/scowser.app").exist?
+      bin.write_exec_script prefix/"scowser.app/Contents/MacOS/scowser"
+    end
+
+    if OS.linux?
+      (share/"applications").install_symlink prefix/"share/applications/scowser.desktop" \
+        if (prefix/"share/applications/scowser.desktop").exist?
+    end
+  end
+
+  def post_install
+    if OS.mac? && (prefix/"scowser.app").exist?
+      app_dir = Pathname.new("#{Dir.home}/Applications")
+      app_dir.mkpath
+      ln_sf prefix/"scowser.app", app_dir/"scowser.app"
+    end
   end
 
   def caveats
     <<~EOS
-      Scowser is a security-focused browser. By default:
+      scowser is a security-focused browser. By default:
         - All sessions are ephemeral (no data persists after exit)
         - DNS queries use DNS-over-HTTPS (Cloudflare)
         - Ads and trackers are blocked at the request level
@@ -35,6 +53,6 @@ class Scowser < Formula
   end
 
   test do
-    assert_match "Scowser", shell_output("#{bin}/scowser --version 2>&1", 0)
+    assert_match "scowser", shell_output("#{bin}/scowser --version 2>&1", 0)
   end
 end
