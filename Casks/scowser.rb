@@ -1,11 +1,11 @@
 cask "scowser" do
-  version "0.0.2"
-  sha256 "abc123..."
+  version ""
+  sha256 ""
 
-  url "https://github.com/scowser/scowser/releases/download/v#{version}/scowser-#{version}-macos.dmg"
+  url "https://github.com//releases/download/v#{version}/"
   name "scowser"
   desc "Security-focused web browser with built-in ad blocking, DoH, and ephemeral sessions"
-  homepage "https://github.com/scowser/scowser"
+  homepage "https://github.com/"
   license "Apache-2.0"
 
   app "scowser.app"
