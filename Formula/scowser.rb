@@ -3,15 +3,13 @@ class Scowser < Formula
   homepage "https://github.com/scowser/scowser"
   url "https://github.com/scowser/scowser/archive/refs/tags/v0.0.2.tar.gz"
   sha256 "e0b8b741277b14aa5fb623aa12c6c947f15b77107591b7cc6ec9c722f7afbe06"
-  license "MIT"
+  license "Apache-2.0"
 
+  depends_on :linux
   depends_on "cmake" => :build
   depends_on "qt@6"
-
-  on_linux do
-    depends_on "libseccomp"
-    depends_on "pkg-config" => :build
-  end
+  depends_on "libseccomp"
+  depends_on "pkg-config" => :build
 
   def install
     args = %W[
