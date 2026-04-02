@@ -1,4 +1,4 @@
-class scowser < Formula
+class Scowser < Formula
   desc "Security-focused web browser with built-in ad blocking, DoH, and ephemeral sessions"
   homepage "https://github.com/scowser/scowser"
   url "https://github.com/scowser/scowser/archive/refs/tags/v0.0.2.tar.gz"
