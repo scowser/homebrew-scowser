@@ -6,7 +6,6 @@ cask "scowser" do
   name "scowser"
   desc "Security-focused web browser with built-in ad blocking, DoH, and ephemeral sessions"
   homepage "https://github.com/"
-  license "Apache-2.0"
 
   app "scowser.app"
 end
