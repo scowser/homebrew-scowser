@@ -1,8 +1,8 @@
 class scowser < Formula
   desc "Security-focused web browser with built-in ad blocking, DoH, and ephemeral sessions"
   homepage "https://github.com/scowser/scowser"
-  url "https://github.com/scowser/scowser/archive/refs/tags/v0.0.1.tar.gz"
-  sha256 "035bb89bf8274e51744329b9edce8c6a1edabb9d38dce2745415c99d0439d74d"
+  url "https://github.com/scowser/scowser/archive/refs/tags/v0.0.2.tar.gz"
+  sha256 "e0b8b741277b14aa5fb623aa12c6c947f15b77107591b7cc6ec9c722f7afbe06"
   license "MIT"
 
   depends_on "cmake" => :build
@@ -22,24 +22,6 @@ class scowser < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build", "--parallel", ENV.make_jobs.to_s
     system "cmake", "--install", "build", "--prefix", prefix
-
-    if OS.mac?
-      prefix.install "build/scowser.app" if (buildpath/"build/scowser.app").exist?
-      bin.write_exec_script prefix/"scowser.app/Contents/MacOS/scowser"
-    end
-
-    if OS.linux?
-      (share/"applications").install_symlink prefix/"share/applications/scowser.desktop" \
-        if (prefix/"share/applications/scowser.desktop").exist?
-    end
-  end
-
-  def post_install
-    if OS.mac? && (prefix/"scowser.app").exist?
-      app_dir = Pathname.new("#{Dir.home}/Applications")
-      app_dir.mkpath
-      ln_sf prefix/"scowser.app", app_dir/"scowser.app"
-    end
   end
 
   def caveats
