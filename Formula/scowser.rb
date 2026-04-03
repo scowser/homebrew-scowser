@@ -1,8 +1,8 @@
 class Scowser < Formula
   desc "Security-focused web browser with built-in ad blocking, DoH, and ephemeral sessions"
   homepage "https://github.com/scowser/scowser"
-  url "https://github.com/scowser/scowser/archive/refs/tags/v0.0.13.tar.gz"
-  sha256 "cfb50b9e752cff0310816c7bc3a0cc82ff08ef7fdaa181eeb3a025b98c7a4b39"
+  url "https://github.com/scowser/scowser/archive/refs/tags/v0.0.14.tar.gz"
+  sha256 "add77cfba3c457cd0309571fc5bf1cebbed0edcc84569e4f06ef55e93166e576"
   license "Apache-2.0"
 
   depends_on :linux
