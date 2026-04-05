@@ -1,8 +1,8 @@
 cask "scowser" do
-  version "0.0.23"
-  sha256 "9c9146ba19b7f5ed7847a88afb9c26c62a7ee17cab8355061f62878a8437058b"
+  version "0.0.25"
+  sha256 "0561e54da9c17f5c8a67a904c083f1077ccfc1c26e0dc74e64d5bfece916356f"
 
-  url "https://github.com/scowser/scowser/releases/download/v#{version}/scowser-0.0.23-macos-latest.dmg"
+  url "https://github.com/scowser/scowser/releases/download/v#{version}/scowser-0.0.25-macos-latest.dmg"
   name "scowser"
   desc "Security-focused web browser with built-in ad blocking, DoH, and ephemeral sessions"
   homepage "https://github.com/scowser/scowser"
